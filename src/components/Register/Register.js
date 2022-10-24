@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../context/UserContext';
 
 const Register = () => {
+    const { createUser } = useContext(AuthContext)
+
+
     const handelSubmit = (event) => {
         event.preventDefault();
         const form = event.target;
@@ -10,6 +14,16 @@ const Register = () => {
         const name = form.name.value;
         const photo = form.photo.value;
         console.log(email, password, name, photo)
+
+        createUser(email, password)
+            .then(res => {
+                const user = res.user;
+                console.log(user)
+            })
+            .catch(error => {
+                console.error(error)
+            })
+
     }
     return (
         <div>

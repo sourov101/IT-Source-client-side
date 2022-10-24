@@ -1,5 +1,8 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './App.css';
+import Blog from './components/Blog/Blog';
+import Courses from './components/Courses/Courses';
+import FAQ from './components/FAQ/FAQ';
 import Home from './components/Home/Home';
 import Login from './components/Login/Login';
 import Register from './components/Register/Register';
@@ -22,6 +25,18 @@ function App() {
         {
           path: '/register',
           element: <Register></Register>
+        },
+        {
+          path: '/courses',
+          element: <Courses></Courses>
+        },
+        {
+          path: '/faq',
+          element: <FAQ></FAQ>
+        },
+        {
+          path: '/blog',
+          element: <Blog></Blog>
         },
 
       ]

@@ -11,6 +11,9 @@ const Header = () => {
                 <div className="flex-none">
                     <div className="">
                         <Link className="btn btn-ghost normal-case text-base" to='/'>Home</Link>
+                        <Link className="btn btn-ghost normal-case text-base" to='/courses'>Courses</Link>
+                        <Link className="btn btn-ghost normal-case text-base" to='/faq'>FAQ</Link>
+                        <Link className="btn btn-ghost normal-case text-base" to='/blog'>Blog</Link>
                         <Link className="btn btn-ghost normal-case text-base" to='/login'>Login</Link>
                         <Link className="btn btn-ghost normal-case text-base" to='/register'>Register</Link>
 

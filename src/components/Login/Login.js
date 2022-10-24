@@ -4,7 +4,7 @@ import { FaGoogle, FaGithub } from "react-icons/fa";
 import { AuthContext } from '../../context/UserContext';
 const Login = () => {
 
-    const { signIn } = useContext(AuthContext);
+    const { signIn, signInWithGoogle } = useContext(AuthContext);
 
     const handelSubmit = (event) => {
         event.preventDefault();
@@ -24,6 +24,19 @@ const Login = () => {
             })
 
 
+    }
+
+
+    const handelGoogleSignIn = () => {
+        signInWithGoogle()
+            .then(res => {
+                const user = res.user;
+                console.log(user)
+
+            })
+            .catch(error => {
+                console.error(error)
+            })
     }
 
     return (
@@ -55,7 +68,7 @@ const Login = () => {
                                 <button className="btn btn-primary">Login</button>
                             </div>
                             <div className="form-control mt-6">
-                                <button className="btn btn-primary"><FaGoogle className='me-4'></FaGoogle>  Login with Google</button>
+                                <button onClick={handelGoogleSignIn} className="btn btn-primary"><FaGoogle className='me-4'></FaGoogle>  Login with Google</button>
                             </div>
                             <div className="form-control mt-6">
                                 <button className="btn btn-primary"><FaGithub></FaGithub>

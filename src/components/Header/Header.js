@@ -19,16 +19,16 @@ const Header = () => {
         <div>
             <div className="navbar bg-base-100">
                 <div className="flex-1">
-                    <Link to='/' className="btn btn-ghost normal-case text-xl">IT Source</Link>
+                    <Link to='/' className="btn btn-ghost normal-case text-xl text-amber-500">IT Source</Link>
                 </div>
                 <div className="flex-none">
                     <div className="">
-                        <Link className="btn btn-ghost normal-case text-base" to='/'>Home</Link>
-                        <Link className="btn btn-ghost normal-case text-base" to='/courses'>Courses</Link>
-                        <Link className="btn btn-ghost normal-case text-base" to='/faq'>FAQ</Link>
-                        <Link className="btn btn-ghost normal-case text-base" to='/blog'>Blog</Link>
+                        <Link className="btn btn-ghost normal-case text-base hover:text-amber-500" to='/'>Home</Link>
+                        <Link className="btn btn-ghost normal-case text-base hover:text-amber-500" to='/courses'>Courses</Link>
+                        <Link className="btn btn-ghost normal-case text-base hover:text-amber-500" to='/faq'>FAQ</Link>
+                        <Link className="btn btn-ghost normal-case text-base hover:text-amber-500" to='/blog'>Blog</Link>
 
-                        <Link className="btn btn-ghost normal-case text-base" to='/register'>Register</Link>
+                        <Link className="btn btn-ghost normal-case text-base hover:text-amber-500" to='/register'>Register</Link>
 
                     </div>
                     {user?.email ?
@@ -45,7 +45,7 @@ const Header = () => {
                             <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
 
 
-                                <li onClick={handelLogout}>Logout</li>
+                                <li onClick={handelLogout} className='hover:text-amber-500'>Logout</li>
                             </ul>
                         </div>
 

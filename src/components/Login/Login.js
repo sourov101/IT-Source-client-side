@@ -1,7 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
+import { FaGoogle, FaGithub } from "react-icons/fa";
 const Login = () => {
+
+    const handelSubmit = (event) => {
+        event.preventDefault();
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
+        console.log(email, password)
+    }
+
     return (
         <div>
             <div className="hero min-h-screen bg-base-200">
@@ -11,24 +20,31 @@ const Login = () => {
                         <p className="py-6">Provide the needed information to login!!!    </p>
                     </div>
                     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-                        <form className="card-body">
+                        <form onSubmit={handelSubmit} className="card-body">
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Email</span>
                                 </label>
-                                <input type="text" placeholder="email" className="input input-bordered" required />
+                                <input type="email" name='email' placeholder="email" className="input input-bordered" required />
                             </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Password</span>
                                 </label>
-                                <input type="text" placeholder="password" className="input input-bordered" required />
+                                <input type="password" name='password' placeholder="password" className="input input-bordered" required />
                                 <label className="label">
                                     <Link to='/register' className="label-text-alt link link-hover">Don't have an account? Register now!!!</Link>
                                 </label>
                             </div>
                             <div className="form-control mt-6">
                                 <button className="btn btn-primary">Login</button>
+                            </div>
+                            <div className="form-control mt-6">
+                                <button className="btn btn-primary"><FaGoogle className='me-4'></FaGoogle>  Login with Google</button>
+                            </div>
+                            <div className="form-control mt-6">
+                                <button className="btn btn-primary"><FaGithub></FaGithub>
+                                    Login with Github</button>
                             </div>
                         </form>
                     </div>

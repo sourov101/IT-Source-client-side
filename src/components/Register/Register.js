@@ -2,6 +2,15 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Register = () => {
+    const handelSubmit = (event) => {
+        event.preventDefault();
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
+        const name = form.name.value;
+        const photo = form.photo.value;
+        console.log(email, password, name, photo)
+    }
     return (
         <div>
             <div>
@@ -12,30 +21,30 @@ const Register = () => {
                             <p className="py-6">Provide the needed information to register!!!    </p>
                         </div>
                         <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-                            <form className="card-body">
+                            <form onSubmit={handelSubmit} className="card-body">
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text">Full Name</span>
                                     </label>
-                                    <input type="text" placeholder="full name" className="input input-bordered" />
+                                    <input type="text" name='name' placeholder="full name" className="input input-bordered" />
                                 </div>
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text">Photo URL</span>
                                     </label>
-                                    <input type="text" placeholder="photo url" className="input input-bordered" />
+                                    <input type="text" name='photo' placeholder="photo url" className="input input-bordered" />
                                 </div>
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text">Email</span>
                                     </label>
-                                    <input type="email" placeholder="email" className="input input-bordered" required />
+                                    <input type="email" name='email' placeholder="email" className="input input-bordered" required />
                                 </div>
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text">Password</span>
                                     </label>
-                                    <input type="password" placeholder="password" className="input input-bordered" required />
+                                    <input type="password" name='password' placeholder="password" className="input input-bordered" required />
                                     <label className="label">
                                         <Link to='/login' className="label-text-alt link link-hover">Already have an account? Login now!!!</Link>
                                     </label>

@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { FaGoogle, FaGithub } from "react-icons/fa";
-import UserContext, { AuthContext } from '../../context/UserContext';
+import { AuthContext } from '../../context/UserContext';
 const Login = () => {
 
-    const { signIn } = UserContext(AuthContext);
+    const { signIn } = useContext(AuthContext);
 
     const handelSubmit = (event) => {
         event.preventDefault();
@@ -22,6 +22,8 @@ const Login = () => {
             .catch(error => {
                 console.error(error)
             })
+
+
     }
 
     return (

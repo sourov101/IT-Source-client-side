@@ -3,8 +3,17 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../context/UserContext';
 
 const Header = () => {
-    const { user } = useContext(AuthContext)
+    const { user, logOut } = useContext(AuthContext)
 
+    const handelLogout = () => {
+        logOut()
+            .then(() => {
+                // Sign-out successful.
+            })
+            .catch((error) => {
+                console.error(error);
+            });
+    }
 
     return (
         <div>
@@ -29,11 +38,11 @@ const Header = () => {
                                 <img src="https://placeimg.com/80/80/people" alt='' />
                             </div>
                         </label>
-                        <div>{user.displayName}</div>
+                        <div>{user?.email}</div>
                         <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
 
 
-                            <li>Logout</li>
+                            <li onClick={handelLogout}>Logout</li>
                         </ul>
                     </div>
                 </div>

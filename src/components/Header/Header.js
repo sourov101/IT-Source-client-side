@@ -19,7 +19,7 @@ const Header = () => {
         <div>
             <div className="navbar bg-base-100">
                 <div className="flex-1">
-                    <Link to='/' className="btn btn-ghost normal-case text-xl text-amber-500">IT Source</Link>
+                    <Link to='/' className="btn btn-ghost normal-case text-xl text-amber-500"> IT Source</Link>
                 </div>
                 <div className="flex-none">
                     <div>
@@ -32,14 +32,14 @@ const Header = () => {
 
                     </div>
                     {user?.uid ?
-                        <div className="dropdown dropdown-end">
+                        <div className=" tooltip tooltip-left dropdown dropdown-end " data-tip={user?.displayName}>
                             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-                                <div className="w-10 rounded-full">
+                                <div className="w-10 rounded-full" >
 
                                     <img src={user?.photoURL} alt='' />
                                 </div>
                             </label>
-                            <div>{user?.displayName}</div>
+                            <div></div>
                             <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
 
 

@@ -1,31 +1,47 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../context/UserContext';
 
 const Register = () => {
-    const { createUser } = useContext(AuthContext)
+    const { createUser, profile } = useContext(AuthContext)
 
-
+    const [passwordError, setPasswordError] = useState('');
+    const [success, setSuccess] = useState(false);
     const handelSubmit = (event) => {
         event.preventDefault();
+        setSuccess(false);
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
         const name = form.name.value;
         const photo = form.photo.value;
-        console.log(email, password, name, photo)
+
+
+        if (password.length < 6) {
+            setPasswordError('Password should be at least 6 character');
+            return;
+        }
+
+
 
         createUser(email, password)
             .then(res => {
                 const user = res.user;
                 console.log(user)
+                setSuccess(true);
+                setPasswordError(false);
+                profile(name, photo);
                 form.reset();
             })
             .catch(error => {
                 console.error(error)
             })
 
+
+
     }
+
+
     return (
         <div>
             <div>
@@ -41,7 +57,7 @@ const Register = () => {
                                     <label className="label">
                                         <span className="label-text">Full Name</span>
                                     </label>
-                                    <input type="text" name='name' placeholder="full name" className="input input-bordered" />
+                                    <input type="text" name='name' placeholder="full name" className="input input-bordered" required />
                                 </div>
                                 <div className="form-control">
                                     <label className="label">
@@ -60,6 +76,11 @@ const Register = () => {
                                         <span className="label-text">Password</span>
                                     </label>
                                     <input type="password" name='password' placeholder="password" className="input input-bordered" required />
+                                    <p className=" text-red-500">{passwordError}</p>
+                                    {
+                                        success && <p className='text-green-500'>Account created successfully</p>
+                                    }
+
                                     <label className="label">
                                         <Link to='/login' className="label-text-alt link link-hover">Already have an account? Login now!!!</Link>
                                     </label>

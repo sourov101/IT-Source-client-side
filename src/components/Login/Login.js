@@ -4,7 +4,7 @@ import { FaGoogle, FaGithub } from "react-icons/fa";
 import { AuthContext } from '../../context/UserContext';
 const Login = () => {
 
-    const { signIn, signInWithGoogle } = useContext(AuthContext);
+    const { signIn, signInWithGoogle, signInWithGitHub } = useContext(AuthContext);
 
     const handelSubmit = (event) => {
         event.preventDefault();
@@ -25,7 +25,17 @@ const Login = () => {
 
 
     }
+    const handelGitSignIn = () => {
+        signInWithGitHub()
+            .then(res => {
+                const user = res.user;
+                console.log(user)
 
+            })
+            .catch(error => {
+                console.error(error)
+            })
+    }
 
     const handelGoogleSignIn = () => {
         signInWithGoogle()
@@ -44,7 +54,7 @@ const Login = () => {
             <div className="hero min-h-screen bg-base-200">
                 <div className="hero-content flex-col lg:flex-row-reverse">
                     <div className="text-center lg:text-left">
-                        <h1 className="text-5xl font-bold">Login now!</h1>
+                        <h1 className="text-5xl font-bold text-amber-500">Login now!</h1>
                         <p className="py-6">Provide the needed information to login!!!    </p>
                     </div>
                     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
@@ -68,10 +78,10 @@ const Login = () => {
                                 <button className="btn btn-primary">Login</button>
                             </div>
                             <div className="form-control mt-6">
-                                <button onClick={handelGoogleSignIn} className="btn btn-primary"><FaGoogle className='me-4'></FaGoogle>  Login with Google</button>
+                                <button onClick={handelGoogleSignIn} className="btn btn-primary"><FaGoogle className='me-4 text-amber-500 mx-5'></FaGoogle>  Login with Google</button>
                             </div>
                             <div className="form-control mt-6">
-                                <button className="btn btn-primary"><FaGithub></FaGithub>
+                                <button onClick={handelGitSignIn} className="btn btn-primary"><FaGithub className='text-amber-500 mx-5'></FaGithub>
                                     Login with Github</button>
                             </div>
                         </form>

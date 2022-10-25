@@ -1,6 +1,8 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../context/UserContext';
+import image from '../assets/images/apple-touch-icon.png';
+
 
 const Header = () => {
     const { user, logOut } = useContext(AuthContext)
@@ -19,7 +21,7 @@ const Header = () => {
         <div>
             <div className="navbar bg-base-100">
                 <div className="flex-1">
-                    <Link to='/' className="btn btn-ghost normal-case text-xl text-amber-500"> IT Source</Link>
+                    <Link to='/' className="btn btn-ghost normal-case text-xl text-amber-500"><img style={{ width: 30, height: 30, margin: 10 }} src={image} alt=''></img> IT Source</Link>
                 </div>
                 <div className="flex-none">
                     <div>
@@ -27,8 +29,14 @@ const Header = () => {
                         <Link className="btn btn-ghost normal-case text-base hover:text-amber-500" to='/courses'>Courses</Link>
                         <Link className="btn btn-ghost normal-case text-base hover:text-amber-500" to='/faq'>FAQ</Link>
                         <Link className="btn btn-ghost normal-case text-base hover:text-amber-500" to='/blog'>Blog</Link>
-
                         <Link className="btn btn-ghost normal-case text-base hover:text-amber-500" to='/register'>Register</Link>
+
+                        <label className="swap ">
+                            <input type="checkbox" />
+                            <div className="swap-on btn btn-ghost normal-case text-base hover:text-amber-500" data-theme="light">Light</div>
+                            <div className="swap-off btn btn-ghost normal-case text-base hover:text-amber-500" data-theme="dark">Dark</div>
+                        </label>
+
 
                     </div>
                     {user?.uid ?

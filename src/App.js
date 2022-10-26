@@ -58,7 +58,7 @@ function App() {
     },
     {
       path: '*',
-      element: <h1 className='text-amber-500 mt-5 text-4xl font-bold'>Route Not Found. Code: 404</h1>
+      element: <h1 className='text-amber-500 mt-5 text-4xl font-bold text-center'>Route Not Found. Code: 404</h1>
     },
   ])
   return (

@@ -20,7 +20,7 @@ const Header = () => {
 
     return (
         <div>
-            <nav className="navbar w-full sm:mb-32">
+            <nav className="navbar md:mb-0 mb-32 ">
                 <div className="flex-1">
                     <Link to='/' className="btn btn-ghost normal-case text-xl text-amber-500"><img style={{ width: 30, height: 30, margin: 10 }} src={image} alt=''></img> IT Source</Link>
                 </div>
@@ -33,7 +33,11 @@ const Header = () => {
                     <Link className="btn btn-ghost normal-case text-base hover:text-amber-500" to='/blog'>Blog</Link>
                     <Link className="btn btn-ghost normal-case text-base hover:text-amber-500" to='/register'>Register</Link>
 
-
+                    <label className="swap hover:text-amber-500 mx-1">
+                        <input type="checkbox" />
+                        <div className="swap-on">Light</div>
+                        <div className="swap-off">Dark</div>
+                    </label>
 
 
 

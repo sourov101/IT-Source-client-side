@@ -1,7 +1,7 @@
 
 import { Link, useLoaderData } from 'react-router-dom';
 import { FaFilePdf } from "react-icons/fa";
-
+import React from 'react';
 
 
 
@@ -15,12 +15,13 @@ const Course = () => {
 
 
     return (
-        <div className='mx-20 my-20'>
+        <div className='mx-20 my-20' >
             <div key={course.id}>
                 <div className="card w-auto bg-base-100 shadow-xl mb-5">
                     <div className='my-10 flex justify-between mx-10'>
                         <h1 className=' text-4xl font-bold text-amber-500'>This is {title}</h1>
                         <FaFilePdf className='text-amber-500 text-3xl' ></FaFilePdf>
+
 
 
 
@@ -42,7 +43,7 @@ const Course = () => {
                     </div>
                 </div>
             </div>
-        </div>
+        </div >
     );
 };
 

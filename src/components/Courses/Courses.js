@@ -14,19 +14,19 @@ const Courses = () => {
 
 
     return (
-        <div className='grid grid-cols-2 gap-4 container mx-auto my-20 '>
-            <div className='lg:block sm:hidden xl:block'>
+        <div className='grid grid-cols-3 container mx-auto my-20 '>
+            <div className='md:block hidden gap-10  grid-cols-1'>
                 <h1>Courses:  {courses.length}</h1>
                 {
                     courses.map(course => <Link key={course.id} to={`/course/${course.id}`}> <button className="btn btn-wide my-3">{course.title}</button></Link>)
                 }
 
             </div>
-            <div >
+            <div className=' gap-10  grid-cols-1 mx-auto my-20 ml-28'>
                 {
                     courses.map(course =>
                         <div key={course.id}>
-                            <div className="card w-52 bg-base-50 shadow-xl mb-5">
+                            <div className=" card w-52 bg-base-50 shadow-xl mb-5 ml-auto">
                                 <figure><img src={course.image} alt="Shoes" /></figure>
                                 <div className="card-body">
                                     <h2 className="card-title">{course.title}</h2>

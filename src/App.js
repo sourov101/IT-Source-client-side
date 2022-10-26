@@ -36,7 +36,7 @@ function App() {
         {
           path: '/course/:id',
           element: <Course></Course>,
-          loader: ({ params }) => fetch(`http://localhost:5000/course/${params.id}`)
+          loader: ({ params }) => fetch(`https://it-source-server.vercel.app/course/${params.id}`)
 
         },
 
@@ -47,7 +47,7 @@ function App() {
         {
           path: '/checkout/:id',
           element: <PrivateRoute><CheckOut></CheckOut></PrivateRoute>,
-          loader: ({ params }) => fetch(`http://localhost:5000/course/${params.id}`)
+          loader: ({ params }) => fetch(`https://it-source-server.vercel.app/course/${params.id}`)
         },
         {
           path: '/blog',

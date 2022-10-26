@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-
+import ReactPDF from '@react-pdf/renderer';
 
 const Courses = () => {
     const [courses, setCourses] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/courseName')
+        fetch('https://it-source-server.vercel.app/courseName')
             .then(res => res.json())
             .then(data => setCourses(data))
     }, [])

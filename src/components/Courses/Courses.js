@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
+
 const Courses = () => {
     const [courses, setCourses] = useState([]);
 
@@ -35,11 +36,9 @@ const Courses = () => {
                                 </div>
                             </div>
                         </div>)
-
-
-
                 }
             </div>
+
 
 
         </div>

@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaGoogle, FaGithub } from "react-icons/fa";
 import { AuthContext } from '../../context/UserContext';
@@ -8,6 +8,7 @@ const Login = () => {
 
     const navigate = useNavigate();
     const location = useLocation();
+    const [error, setError] = useState('');
     const from = location.state?.from?.pathname || '/';
 
     const handelSubmit = (event) => {
@@ -25,7 +26,8 @@ const Login = () => {
                 navigate(from, { replace: true })
             })
             .catch(error => {
-                console.error(error)
+                console.error(error);
+                setError(error.message);
             })
 
 
@@ -77,6 +79,7 @@ const Login = () => {
                                     <span className="label-text">Password</span>
                                 </label>
                                 <input type="password" name='password' placeholder="password" className="input input-bordered" required />
+                                <p className=" text-red-500">{error}</p>
                                 <label className="label">
                                     <Link to='/register' className="label-text-alt link link-hover">Don't have an account? Register now!!!</Link>
                                 </label>

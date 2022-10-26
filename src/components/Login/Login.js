@@ -34,6 +34,7 @@ const Login = () => {
         signInWithGitHub()
             .then(res => {
                 const user = res.user;
+                navigate(from, { replace: true })
                 console.log(user)
 
             })
@@ -46,6 +47,7 @@ const Login = () => {
         signInWithGoogle()
             .then(res => {
                 const user = res.user;
+                navigate(from, { replace: true })
                 console.log(user)
 
             })

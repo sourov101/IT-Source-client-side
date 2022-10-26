@@ -10,7 +10,7 @@ const PrivateRoute = ({ children }) => {
         return <div><div className="radial-progress" style={{ "--value": 100 }}>100%</div></div>
     }
 
-    if (user && user?.uid) {
+    if (user) {
         return children;
     }
     return <Navigate to='/login' state={{ from: location }} replace> </Navigate>

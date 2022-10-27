@@ -10,3 +10,4 @@ live site: https://it-source-f7e77.web.app/
 7.Tailwind css with daisyui framework is used.</br>
 8.Application is using context api also.</br>
 9.Different types of react hook is used. for example, useState,useEffect,useContext,usePdf etc.</br>
+10.Hoasting is done with firebase and vercel is used for server side.
